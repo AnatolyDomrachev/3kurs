@@ -1,0 +1,21 @@
+     1	10:23:16-590	PC0	Echo Protocol Data       	Application    	Start sending echo message 'asdfgg' to 10.0.0.2:1234
+     2	10:23:16-591	PC0	UDP Protocol             	Transport      	Created UDP packet for 10.0.0.2:1234. (Local is 10.0.0.1:3000, socket 1 ).
+     3	10:23:16-591	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+     4	10:23:16-592	PC0	Ethernet Packet          	Link           	Sending packet from interface 4F:50:7D:58:51:56
+     5	10:23:16-594	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 45:B0:67:4E:20:66
+     6	10:23:16-595	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+     7	10:23:16-595	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+     8	10:23:16-595	PC1	UDP Protocol             	Transport      	UDP packet received from 10.0.0.1:3000 message: "asdfgg".
+     9	10:23:16-595	PC1	Echo Protocol Data       	Application    	Recieving echo message 'asdfgg' from client 10.0.0.1:3000. Total recieved messages by server: 2
+    10	10:23:16-596	PC1	Echo Protocol Data       	Application    	Sending echo message 'asdfgg' to client.
+    11	10:23:16-596	PC1	UDP Protocol             	Transport      	Created UDP packet for 10.0.0.1:3000. (Local is 10.0.0.2:1234, socket 0 ).
+    12	10:23:16-596	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+    13	10:23:16-596	PC1	Ethernet Packet          	Link           	Sending packet from interface 45:B0:67:4E:20:66
+    14	10:23:16-596	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 4F:50:7D:58:51:56
+    15	10:23:16-597	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+    16	10:23:16-600	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+    17	10:23:16-600	PC0	UDP Protocol             	Transport      	UDP packet received from 10.0.0.2:1234 message: "asdfgg".
+    18	10:23:16-600	PC0	Echo Protocol Data       	Application    	Recieving echo message 'asdfgg' from server.
+    19	10:23:16-602	PC0	Echo Protocol Data       	Application    	Connection time: 3 ms. Sent messages: 1 Recieved messages: 1
+
+1- Там происходит следующее: - Думай!

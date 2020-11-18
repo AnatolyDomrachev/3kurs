@@ -1,0 +1,95 @@
+13:17:07-647	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:07-648	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:07-648	PC0	ICMP_packet              	Network        	ProtocolStack received packet from local Interface.
+13:17:07-650	PC0	ICMP_packet              	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:07-650	PC0	Echo Reply Packet        	Network        	Echo reply packet received from 10.0.0.2
+13:17:58-479	PC0	Echo Protocol Data       	Application    	Connecting to host 10.0.0.2:2222. Please wait...
+13:17:58-479	PC0	TCP Protocol             	Transport      	Local port 10000 reserved for client app.
+13:17:58-479	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags=SYN, seq=0 ack=0 data=''
+13:17:58-480	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-480	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-480	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-480	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-481	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-481	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags: SYN, message: "".
+13:17:58-481	PC1	TCP Protocol             	Transport      	TCP packet send to 10.0.0.1:10000 flags=ACK,SYN, seq=0 ack=1 data=''
+13:17:58-482	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+13:17:58-483	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:58-483	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:58-484	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-484	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-484	PC0	TCP Protocol             	Transport      	TCP packet received from 10.0.0.2:2222 flags: ACK,SYN, message: "".
+13:17:58-485	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags=ACK, seq=1 ack=1 data=''
+13:17:58-485	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-485	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-485	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-486	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-486	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-486	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags: ACK, message: "".
+13:17:58-486	PC1	Echo Protocol Data       	Application    	Connected 13 !
+13:17:58-486	PC0	Echo Protocol Data       	Application    	Connected 3 !
+13:17:58-487	PC0	Echo Protocol Data       	Application    	Start sending echo message 'hello!!!' to 10.0.0.2:2222
+13:17:58-487	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags= seq=1 ack=1 data='hello!!!'
+13:17:58-487	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-488	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-488	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-489	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-489	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-490	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags:  message: "hello!!!".
+13:17:58-490	PC1	TCP Protocol             	Transport      	TCP packet send to 10.0.0.1:10000 flags=ACK, seq=1 ack=2 data=''
+13:17:58-490	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+13:17:58-490	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:58-491	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:58-491	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-491	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-491	PC0	TCP Protocol             	Transport      	TCP packet received from 10.0.0.2:2222 flags: ACK, message: "".
+13:17:58-491	PC1	Echo Protocol Data       	Application    	Recieving echo message 'hello!!!' from client. Total recieved messages: 1.
+13:17:58-492	PC1	Echo Protocol Data       	Application    	Sending echo message 'hello!!!' to client.
+13:17:58-492	PC1	TCP Protocol             	Transport      	TCP packet send to 10.0.0.1:10000 flags= seq=1 ack=1 data='hello!!!'
+13:17:58-493	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+13:17:58-493	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:58-493	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:58-495	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-495	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-496	PC0	TCP Protocol             	Transport      	TCP packet received from 10.0.0.2:2222 flags:  message: "hello!!!".
+13:17:58-496	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags=ACK, seq=2 ack=2 data=''
+13:17:58-496	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-496	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-496	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-497	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-497	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-497	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags: ACK, message: "".
+13:17:58-498	PC0	Echo Protocol Data       	Application    	Recieving echo message 'hello!!!' from server.
+13:17:58-498	PC0	Echo Protocol Data       	Application    	Connection time: 105 ms. Total recieved messages: 1.
+13:17:58-498	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags=FIN, seq=2 ack=2 data=''
+13:17:58-498	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-499	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-499	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-499	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-499	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-500	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags: FIN, message: "".
+13:17:58-500	PC1	TCP Protocol             	Transport      	TCP packet send to 10.0.0.1:10000 flags=ACK, seq=2 ack=3 data=''
+13:17:58-504	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+13:17:58-505	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:58-505	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:58-506	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-506	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-506	PC0	TCP Protocol             	Transport      	TCP packet received from 10.0.0.2:2222 flags: ACK, message: "".
+13:17:58-506	PC1	TCP Protocol             	Transport      	TCP packet send to 10.0.0.1:10000 flags=FIN, seq=2 ack=3 data=''
+13:17:58-506	PC1	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.1).
+13:17:58-507	PC1	Ethernet Packet          	Link           	Sending packet from interface 50:20:74:BA:36:2D
+13:17:58-507	PC0	Ethernet Packet          	Link           	Recieved and accepted packet at interface 9C:77:B2:C7:85:B2
+13:17:58-507	PC0	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-507	PC0	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-508	PC0	TCP Protocol             	Transport      	TCP packet received from 10.0.0.2:2222 flags: FIN, message: "".
+13:17:58-508	PC0	TCP Protocol             	Transport      	TCP packet send to 10.0.0.2:2222 flags=ACK, seq=3 ack=3 data=''
+13:17:58-508	PC0	IP_Packet                	Network        	Sending packet from ProtocolStack (to 10.0.0.2).
+13:17:58-508	PC0	Ethernet Packet          	Link           	Sending packet from interface 9C:77:B2:C7:85:B2
+13:17:58-508	PC1	Ethernet Packet          	Link           	Recieved and accepted packet at interface 50:20:74:BA:36:2D
+13:17:58-509	PC1	IP_Packet                	Network        	ProtocolStack received packet from local Interface.
+13:17:58-509	PC1	IP_Packet                	Network        	Confirmed Packet is for this Network Layer Device.
+13:17:58-509	PC1	TCP Protocol             	Transport      	TCP packet received from 10.0.0.1:10000 flags: ACK, message: "".
+13:17:58-509	PC1	TCP Protocol             	Transport      	Local port 2222 closed.
+13:17:58-509	PC1	Echo Protocol Data       	Application    	Disconnected
+13:17:58-510	PC0	TCP Protocol             	Transport      	Local port 10000 closed.
+13:17:58-510	PC0	Echo Protocol Data       	Application    	Disconnected
