@@ -1,34 +1,31 @@
+TCP/IP
+	Link layer
+		Ethernet: ifconfig, ipconfig, arp : MAC
 
-Link layer
-Ethernet: ifconfig, ipconfig, arp : MAC
+	Network layer
+		ARP : arp : arp table
+		IP : ifconfig, ipconfig, ip, route
+		ICMP : ping, traceroute, tracert
 
-Network layer
-ARP : arp : arp table
-IP : ifconfig, ipconfig, ip, route
-ICMP : ping, traceroute, tracert
+	Transport layer
+		TCP, UDP : netstat, telnet , nmap
 
-Transport layer
-TCP, UDP : netstat, telnet 
+		PORT     STATE SERVICE
+		21/tcp   open  ftp
+		22/tcp   open  ssh
+		25/tcp   open  smtp
+		53/tcp,udp   open  DNS
+		80/tcp   open  http
+		110/tcp  open  pop3
+		143/tcp  open  imap
+		993/tcp  open  imaps
+		995/tcp  open  pop3s
+		3128/tcp open  squid-http
+		3306/tcp open  mysql
+		5432/tcp open  postgresql
 
-PORT     STATE SERVICE
-21/tcp   open  ftp
-22/tcp   open  ssh
-25/tcp   open  smtp
-53/tcp   open  domain
-80/tcp   open  http
-110/tcp  open  pop3
-143/tcp  open  imap
-631/tcp  open  ipp
-993/tcp  open  imaps
-995/tcp  open  pop3s
-3128/tcp open  squid-http
-3306/tcp open  mysql
-5432/tcp open  postgresql
-7070/tcp open  realserver
-
-
-Application layer
-DNS
+	Application layer
+		DNS : dig , nslookup
 
 CISCO:
-    show ...
+	show ...
