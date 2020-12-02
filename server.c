@@ -19,10 +19,10 @@ void func(int sockfd)
 	//	bzero(buff, MAX); 
 
 		// read the message from client and copy it in buffer 
-		read(sockfd, buff, sizeof(buff)); 
+//		read(sockfd, buff, sizeof(buff)); 
 		// print buffer which contains the client contents 
-		printf("From client: %s\t To client : ", buff); 
-		write(sockfd, "HTTP/1.0 200 OK\nhello!", 30);
+//		printf("From client: %s\t To client : ", buff); 
+		write(sockfd, "HTTP/1.0 200 OK\nhello!\n", 30);
         /*
 		bzero(buff, MAX); 
 		n = 0; 
