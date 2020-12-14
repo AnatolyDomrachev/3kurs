@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdio.h> 
 #include <netdb.h> 
 #include <netinet/in.h> 
@@ -22,7 +23,7 @@ void func(int sockfd)
 //		read(sockfd, buff, sizeof(buff)); 
 		// print buffer which contains the client contents 
 //		printf("From client: %s\t To client : ", buff); 
-		write(sockfd, "HTTP/1.0 200 OK\nhello!\n", 30);
+		write(sockfd, "HTTP/1.0 200 OK\r\n\r\nhello!\r\n", 50);
         /*
 		bzero(buff, MAX); 
 		n = 0; 
@@ -93,6 +94,6 @@ int main()
 	func(connfd); 
 
 	// After chatting close the socket 
-	close(sockfd); 
+	//close(sockfd); 
 } 
 

@@ -10,6 +10,8 @@ void func(int sockfd)
 { 
 	char buff[MAX]; 
 	int n; 
+    write(sockfd, "GET / \r\n", 30);
+
     /*
 	for (;;) { 
 		bzero(buff, sizeof(buff)); 
