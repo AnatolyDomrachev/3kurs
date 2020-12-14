@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 import csv
 import time
@@ -21,7 +22,7 @@ def main():
     queries = ['2017']
     # Query and request from API are different!
     # Number of track query need to make
-    num_tracks_per_query = 10
+    num_tracks_per_query = 1
 
     for query in queries:
         
@@ -82,21 +83,20 @@ def main():
             time.sleep(0.3)    
         
         
-        #df1 = pd.DataFrame(ltrack, columns=col1)
+        df1 = pd.DataFrame(ltrack, columns=col1)
         
-        #df2 = pd.DataFrame(audioF, columns=col2) 
+        df2 = pd.DataFrame(audioF, columns=col2) 
         
         
-        #df3 = pd.DataFrame(artist_data, columns=col3)
+        df3 = pd.DataFrame(artist_data, columns=col3)
         
-        #df4 = pd.DataFrame(album_data, columns=col4)
+        df4 = pd.DataFrame(album_data, columns=col4)
         
-        #df = df1.merge(df2, on='song_id', how='outer').merge(df3, on='artist_id', how='outer').merge(
-             #df4, on='album_id', how='outer')
+        df = df1.merge(df2, on='song_id', how='outer').merge(df3, on='artist_id', how='outer').merge( df4, on='album_id', how='outer')
         
         filename = query + '.csv'                      
         
-        #df.to_csv(filename, sep='\t')
+        df.to_csv(filename, sep='\t')
         
         print ('finish')
         print (query)
