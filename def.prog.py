@@ -7,8 +7,12 @@ import sys
 import imp
 imp.reload(sys)
 
+NumInResp = 50
+TimeSleep = 0.3
+BigTimeSleep = 10
+num_tracks_per_query = 2000
 
-access_token = (  'Bearer BQAhHGzBMWb2Rq34lbv7ouajiZY1vOw_PvmJmhmi9OowXEeVpVmCeCf0fu5hIo7ljZzNK9IoTuVbSM7S_4uiNeZlhm2sVpgRq-AaxGP-6MbH-ROxCg3Eu4F9s-Kux2uHG38J8K_t2M9YKyZkFkrAL7Z0M2B8xkjyyuS4gkMD7nW2nsz670pWDSIqw7mq5247DFMIc1Y5a6LNIKtM8tl125XuvNeN9VcuMVdAWPeJrWdAengQhkqVPtX93opMglhGlQm0jBmZdYa6s2sS8f9H04PLB35qYnpreLs')
+access_token = (  'Bearer BQCi7JHpYZ0cAJB_ZCV5MllSN2aPHmmlRjCaKre88FO9EnN2t-W6C4GLAcSelJczIyyIj7gNqFnUckXfUSHqzC29UyL9CGLbzizxEhQs1R_cSsUnxyxPtpjcEoblYF4D7QGqyW88ZHqY_vtHbVIJLMNyKMVMqROrqNS_OpcY0jo9b1e1tK8VVGRB42wmhR2EgeNO8QdikUejAc0z0cFfXTxKMZjeUP_Bo-lLxOV38xYdE7i880yA4EiUDItLENaPYG2YO9Rwx963woAttKmWVxQooJ3jlyWZaXpmPbo')
 
 print('start..')
 
@@ -23,10 +27,9 @@ def main():
 #    for i in range(2010,2020):
 #        queries.append(str(i))
 
-    queries = ['2001']
+    queries = ['2009']
     # Query and request from API are different!
     # Number of track query need to make
-    num_tracks_per_query = 10000
 
     for query in queries:
         
@@ -61,31 +64,30 @@ def main():
         col4 =  [  'album_id',  'album_genres',   'album_popularity',  'album_release_date']
         
         n = 0 
-        idx = 0
         
+        idx = 0
         while idx < num_tracks_per_query:  
             
-            API_search_request(query, 'track', 100, idx, ltrack, song_ids, artist_ids, album_ids)   
+            API_search_request(query, 'track', NumInResp, idx, ltrack, song_ids, artist_ids, album_ids)   
             n +=1
             print(('\n>> this is No '+ str(n) + ' search End '))
-            idx += 100 
+            idx += NumInResp 
             # Limit API requests to at most 3ish calls / second
-            time.sleep(0.3)                                     
+            time.sleep(TimeSleep)                                     
         
         print(len(song_ids))
         ## spotify API "search" option vs here track/audiofeature query
-        for idx in range(0, len(song_ids), 100):
-            API_get_audio_feature(song_ids[idx: idx+100], audioF)
-            time.sleep(0.3)
+        for idx in range(0, len(song_ids), NumInResp):
+            API_get_audio_feature(song_ids[idx: idx+NumInResp], audioF)
+            time.sleep(TimeSleep)
         
-        for idx in range(0, len(artist_ids), 100):
-            API_get_artists(artist_ids[idx: idx+100], artist_data)
-            time.sleep(0.3)
+        for idx in range(0, len(artist_ids), NumInResp):
+            API_get_artists(artist_ids[idx: idx+NumInResp], artist_data)
+            time.sleep(TimeSleep)
         
         for idx in range(0, len(album_ids), 20):
             API_get_albums(album_ids[idx: idx+20], album_data)
             time.sleep(0.3)    
-        
         
         df1 = pd.DataFrame(ltrack, columns=col1)
         
@@ -115,10 +117,13 @@ def API_search_request(keywords, search_type, results_limit, results_offset, ltr
     #r = requests.get(url)
     r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
 
+    print(r)
+
     if r: 
        j = r.json()
     else:
-      return r
+       time.sleep(BigTimeSleep)                                     
+       return r
 
 
     litem = j['tracks']['items']
@@ -171,6 +176,7 @@ def API_get_audio_feature(songids, audioF):
     #access_token = (  'Bearer BQDAZNalQ6KCd8pRM0Exu3D-tzdeodFYL86pdq8kz' 'qN8i5gqeLMNeCgyPmZ1B3mgQ2YGd29tL06jxeNzOMkhmi4GM' 'QQLQ_ZfQUroBMRSMj10IOjEo-cX7YsfzH_v3eUlN4wXgDd4z' 'njNqrPu-MI9qRz3_jyb44urQ7J5TeOeWk4kvHKfD36TplacQ' 'DeYJe49DsaAQWuCSe5kdt1r7r0GqugSH85vOaa5qrqMaGbKM' 'DnZ-2aWzuLUE37Vh3U2MR3VEdgHPIxlQtC_vfTBwiMZZcY55' 'Q1aZuKSrGL9A6MC2hUi4CgRMD1mXwE9l8bLJQ') 
 
     r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
+    print("    ",r)
     
     if r: 
       j = r.json()

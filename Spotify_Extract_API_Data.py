@@ -1,4 +1,3 @@
-import pandas as pd
 import requests
 import csv
 import time
@@ -8,22 +7,16 @@ import imp
 imp.reload(sys)
 
 
-access_token = (  'Bearer BQAhHGzBMWb2Rq34lbv7ouajiZY1vOw_PvmJmhmi9OowXEeVpVmCeCf0fu5hIo7ljZzNK9IoTuVbSM7S_4uiNeZlhm2sVpgRq-AaxGP-6MbH-ROxCg3Eu4F9s-Kux2uHG38J8K_t2M9YKyZkFkrAL7Z0M2B8xkjyyuS4gkMD7nW2nsz670pWDSIqw7mq5247DFMIc1Y5a6LNIKtM8tl125XuvNeN9VcuMVdAWPeJrWdAengQhkqVPtX93opMglhGlQm0jBmZdYa6s2sS8f9H04PLB35qYnpreLs')
-
 print('start..')
 
 
 def main():
     
-    #queries = ['1995','1996','1997','1998','1999','2000','2001',
-              #'2002','2003','2004','2005','2006','2007','2008',
-              #'2009','2010','2011','2012','2013','2014','2015','2016','2017']
+    queries = ['1995','1996','1997','1998','1999','2000','2001',
+              '2002','2003','2004','2005','2006','2007','2008',
+              '2009','2010','2011','2012','2013','2014','2015','2016','2017']
               
-    #queries = []
-#    for i in range(2010,2020):
-#        queries.append(str(i))
-
-    queries = ['2001']
+    #queries = ['2017']
     # Query and request from API are different!
     # Number of track query need to make
     num_tracks_per_query = 10000
@@ -65,21 +58,21 @@ def main():
         
         while idx < num_tracks_per_query:  
             
-            API_search_request(query, 'track', 100, idx, ltrack, song_ids, artist_ids, album_ids)   
+            API_search_request(query, 'track', 50, idx, ltrack, song_ids, artist_ids, album_ids)   
             n +=1
             print(('\n>> this is No '+ str(n) + ' search End '))
-            idx += 100 
+            idx += 50 
             # Limit API requests to at most 3ish calls / second
             time.sleep(0.3)                                     
         
         print(len(song_ids))
         ## spotify API "search" option vs here track/audiofeature query
-        for idx in range(0, len(song_ids), 100):
-            API_get_audio_feature(song_ids[idx: idx+100], audioF)
+        for idx in range(0, len(song_ids), 50):
+            API_get_audio_feature(song_ids[idx: idx+50], audioF)
             time.sleep(0.3)
         
-        for idx in range(0, len(artist_ids), 100):
-            API_get_artists(artist_ids[idx: idx+100], artist_data)
+        for idx in range(0, len(artist_ids), 50):
+            API_get_artists(artist_ids[idx: idx+50], artist_data)
             time.sleep(0.3)
         
         for idx in range(0, len(album_ids), 20):
@@ -96,7 +89,8 @@ def main():
         
         df4 = pd.DataFrame(album_data, columns=col4)
         
-        df = df1.merge(df2, on='song_id', how='outer').merge(df3, on='artist_id', how='outer').merge( df4, on='album_id', how='outer')
+        df = df1.merge(df2, on='song_id', how='outer').merge(df3, on='artist_id', how='outer').merge(
+             df4, on='album_id', how='outer')
         
         filename = query + '.csv'                      
         
@@ -112,8 +106,7 @@ def API_search_request(keywords, search_type, results_limit, results_offset, ltr
 
     url = 'https://api.spotify.com/v1/search?q=year:'+ keywords +'&type=' + search_type +'&offset='+ off +'&limit=' + lim
 
-    #r = requests.get(url)
-    r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
+    r = requests.get(url)
 
     if r: 
        j = r.json()
@@ -151,11 +144,9 @@ def API_search_request(keywords, search_type, results_limit, results_offset, ltr
                      l['track_number']]
         
             ltrack.append(k)
-
     except:
          ValueError
       
-    pass
    # f.close()
     #return j
 
@@ -168,8 +159,15 @@ def API_get_audio_feature(songids, audioF):
 
     url = 'https://api.spotify.com/v1/audio-features?ids=' + track_ids  
     ## access_token will expire soon
-    #access_token = (  'Bearer BQDAZNalQ6KCd8pRM0Exu3D-tzdeodFYL86pdq8kz' 'qN8i5gqeLMNeCgyPmZ1B3mgQ2YGd29tL06jxeNzOMkhmi4GM' 'QQLQ_ZfQUroBMRSMj10IOjEo-cX7YsfzH_v3eUlN4wXgDd4z' 'njNqrPu-MI9qRz3_jyb44urQ7J5TeOeWk4kvHKfD36TplacQ' 'DeYJe49DsaAQWuCSe5kdt1r7r0GqugSH85vOaa5qrqMaGbKM' 'DnZ-2aWzuLUE37Vh3U2MR3VEdgHPIxlQtC_vfTBwiMZZcY55' 'Q1aZuKSrGL9A6MC2hUi4CgRMD1mXwE9l8bLJQ') 
-
+    access_token = (  'Bearer BQDAZNalQ6KCd8pRM0Exu3D-tzdeodFYL86pdq8kz'
+                      'qN8i5gqeLMNeCgyPmZ1B3mgQ2YGd29tL06jxeNzOMkhmi4GM'
+                      'QQLQ_ZfQUroBMRSMj10IOjEo-cX7YsfzH_v3eUlN4wXgDd4z'
+                      'njNqrPu-MI9qRz3_jyb44urQ7J5TeOeWk4kvHKfD36TplacQ'
+                      'DeYJe49DsaAQWuCSe5kdt1r7r0GqugSH85vOaa5qrqMaGbKM'
+                      'DnZ-2aWzuLUE37Vh3U2MR3VEdgHPIxlQtC_vfTBwiMZZcY55'
+                      'Q1aZuKSrGL9A6MC2hUi4CgRMD1mXwE9l8bLJQ')
+    
+    
     r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
     
     if r: 
@@ -208,8 +206,7 @@ def API_get_artists(artist_ids, artist_data):
 
     url = 'https://api.spotify.com/v1/artists?ids=' + art_ids
 
-    #r = requests.get(url)
-    r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
+    r = requests.get(url)
 
     if r:
        j = r.json()
@@ -240,8 +237,7 @@ def API_get_albums(album_ids, album_data):
     alb_ids = ','.join(album_ids)
 
     url = 'https://api.spotify.com/v1/albums?ids=' + alb_ids
-    #r = requests.get(url)
-    r = requests.get(url, headers={"Accept": "application/json" , "Authorization": access_token})
+    r = requests.get(url)
 
     if r:
        j = r.json()
